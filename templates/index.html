@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block title%}Inicio{%endblock%}
+
+{%block content%}
+<section class="card">
+    <h2>Acceso al sistema</h2>
+    <form method="post" action="/procesar" class="form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana" required>
+        <button type="submit">Probar acceso</button>
+    </form>
+
+    <div class="info">
+        <p><strong>Último nombre:</strong>{{ultimo if ultimo else "__"}}</p>
+        <p><strong>Intentos:</strong>{{intentos}}</p>
+    </div>
+
+    <form method="post" action="/reiniciar">
+        <button type="submit" class="btn-sec">Reiniciar contador</button>
+    </form>
+
+</section>
+{%endblock%}
